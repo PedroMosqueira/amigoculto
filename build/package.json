@@ -1,0 +1,24 @@
+{
+  "name": "amig-app",
+  "version": "1.0.0",
+  "description": "amig-app",
+  "main": "sort.js",
+  "homepage": "https://github.com/PedroMosqueira/AmigoOculto",
+"repository": {
+  "type": "git",
+  "url": "https://github.com/PedroMosqueira/AmigoOculto.git"
+},
+
+  "scripts": {
+    "test": "amig-run",
+    "build": "react-scripts build",
+    "deploy": "gh-pages -d build"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "gh-pages": "^6.3.0",
+    "intl-tel-input": "^25.3.0",
+    "react-scripts": "^5.0.1"
+  }
+}

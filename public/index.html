@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amigo Oculto</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css"/>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
+  
+</head>
+</head>
+
+
+<body>
+    <h1 id="h1">Amigo Oculto</h1>
+
+    <form action="" method="post">
+       
+
+        <div id="divnome" name="divnome">
+          <p>
+            <label for="n">Nome:</label>
+            <input type="text" class="nome" name="nome" id="n">
+          </p>
+          <p>
+            <label for="phone">Whatsapp:</label>
+            <input id="phone" type="tel" name="phone" />
+          </p>
+           
+            <button type="button" onclick="add(cont) " id="soma">+</button>
+            
+        </div>
+        <p id="participantes">Participantes:<span id="cont" class="cont"></span></p>
+        <div id="todos">
+            <p id="lista"></p>
+           
+            
+        </div>
+
+        <button type="button" onclick="enviar()">Sortear</button>
+       
+        
+    </form>
+</body>
+
+
+
+
+
+
+
+   
+    
+
+
+<script>
+
+const phoneInputField = document.querySelector("#phone");
+   const phoneInput = window.intlTelInput(phoneInputField, {
+     utilsScript:
+       "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js", 
+       defaultCountry: "auto",
+      
+       });
+
+var inputnome=document.getElementById("n");
+var inputnum=document.getElementById('phone');
+
+  inputnome.addEventListener('blur', () => {
+  inputnome.style.border = '1px solid #ccc'; // cor original
+}); 
+inputnome.addEventListener('focus', () => {
+  inputnome.style.border = '1px solid #ccc'; // cor original
+}); 
+
+inputnum.addEventListener('blur', () => {
+  inputnum.style.border = '1px solid #ccc'; // cor original
+}); 
+
+inputnum.addEventListener('focus', () => {
+  inputnum.style.border = '1px solid #ccc'; // cor original
+}); 
+
+
+
+
+
+
+
+function add(){
+
+        
+ 
+    
+var n=document.getElementById('n');
+var nome=n.value;
+const phoneNumber = phoneInput.getNumber();
+const bol=phoneInput.isValidNumber();
+const bol2=nome_num.has(nome);
+
+if(bol && bol2==false && nome!=""){
+      
+      
+
+      var  paragrafo=document.createElement("p");
+      paragrafo.className='paragrafo'
+      var excluir=document.createElement('button');
+      excluir.innerText='-';
+      excluir.type="button";
+      //excluir.id='excluir';
+      excluir.className='excluir'
+      excluir.addEventListener('click',function remove(){
+        paragrafo.remove();
+        //document.getElementById('lista').innerText=list;
+        var cont=list.length;
+        document.getElementById('cont').innerText=cont;
+        var enume=document.getElementsByClassName('enu');
+        num_excluir(nome);
+
+        for (var i=0;i<enume.length;i++){
+            var enume=document.getElementsByClassName('enu');
+            var n =enume[i];
+            n.innerText=String(i+1);
+        }
+
+
+      });
+      
+        //alert(String(nome)
+       var list=document.getElementsByClassName('paragrafo');
+       //alert(list);
+       
+        var nor=document.createElement('span');
+        
+        nor.className='enu';
+        //nor.innerText='span  '
+        
+        paragrafo.innerText=`.`+nome;
+        paragrafo.insertBefore(nor,paragrafo.firstChild);
+
+        paragrafo.appendChild(excluir);        //Add botão excluir.
+        var lista=document.getElementById('todos');
+        
+        lista.appendChild(paragrafo);
+        var cont=list.length;
+        document.getElementById('cont').innerText=cont;
+        
+
+       var enume=document.getElementsByClassName('enu');
+
+       for (var i=0;i<enume.length;i++){
+        var enume=document.getElementsByClassName('enu');
+        var n =enume[i];
+        
+        n.innerText=String(i+1);
+        paragrafo.id=String(i+1);
+
+       } 
+       num(phoneInput); 
+
+      }if (phoneInput.isValidNumber()==false){
+        document.getElementById('phone').style.borderColor='red';
+        alert('número inválido!');
+        
+        
+      
+      }if ( nome==""){
+        alert('campo "Nome" não preenchido!');
+        document.getElementById('n').style.borderColor='red';
+        
+
+      }if(bol2==true){
+        document.getElementById('n').style.borderColor='red';
+        alert('este nome já existe na lista!');
+        
+
+        
+        
+      }
+    }
+
+    function listar(){
+        l=[];
+        var list=document.getElementsByClassName('paragrafo');
+       
+        
+        for(var i=0;i<list.length;i++){
+            var f =list[i].textContent;
+            var e=((f.replace(i+1,'')).replace('.','')).replace('-','');
+            //e=e.repalce('.','');
+            
+            l.push(e);
+        }
+
+        //alert(l);
+
+        return(l);
+
+      }
+
+      
+    
+     
+     
+  //var list=listar(); 
+   
+  
+
+</script>
+<script  src="sort.js"></script>
+
+
+</html>

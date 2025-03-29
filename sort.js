@@ -102,7 +102,7 @@ if([...result.values()].includes(undefined)){
 
     alert('algo deu errado, tente novamente !');
     window.stop();
-    process.exit(0);
+    //process.exit(0);
 }else{
     alert(`tudo certo`);
     

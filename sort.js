@@ -167,7 +167,7 @@ async function enviar(){
 
     while (tentativas < maxTentativas) {
         try {
-            const response=await fetch('server.js', {
+            const response=await fetch(/'server.js', {
 
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },

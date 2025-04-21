@@ -167,7 +167,7 @@ async function enviar(){
 
     while (tentativas < maxTentativas) {
         try {
-            const response=await fetch('https://9257-2804-14c-8337-8086-bb5e-e9a7-fb52-3319.ngrok-free.app/enviar-sms', {
+            const response=await fetch('https://066d-45-177-208-70.ngrok-free.app/enviar-sms', {
 
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
